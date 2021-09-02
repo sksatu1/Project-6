@@ -22,7 +22,6 @@ const toggler = (spinnerDisplayStyle) => {
 // load search result ---------------------------------------------------------
 const loadBooks = bookName => {
     const url = `https://openlibrary.org/search.json?q=${bookName}`;
-    console.log(url);
     fetch(url)
         .then(res => res.json())
         .then(data => displayBooks(data.numFound, data.docs.slice(0, 9)))
