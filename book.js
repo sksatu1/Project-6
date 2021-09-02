@@ -19,7 +19,7 @@ const loadBooks = bookName => {
     console.log(url);
     fetch(url)
         .then(res => res.json())
-        .then(data => displayBooks(data.numFound, data.docs.slice(0, 3)))
+        .then(data => displayBooks(data.numFound, data.docs.slice(0, 9)))
 }
 
 // display error message 
@@ -30,6 +30,7 @@ const errorMessage = (displayStyle) => {
 // display search result ---------------------------------------------------------
 const displayBooks = (noOfBooks, books) => {
     // console.log(noOfBooks, books.length);
+    // console.log(noOfBooks, books);
 
     if (noOfBooks === 0 && books.length === 0) {
         // show error message ------------------------
@@ -49,12 +50,12 @@ const displayBooks = (noOfBooks, books) => {
             div.classList.add('col');
             div.innerHTML = `
         <div class="card">
-                    <img height="500px" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="...">
+                    <img height="500px" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="No cover page found">
                     <div class="card-body">
                         <h5 class="card-title">Book Name : ${book.title}</h5>
-                        <p class="card-text">Author : ${book.author_name}</p>
+                        <p class="card-text">Author : ${book.author_name[0]}</p>
                         <p class="card-text">Publisher : ${book.publisher[0]}</p>
-                        <p class="card-text">First publish date : ${book.first_publish_year}</p>
+                        <p class="card-text">First publish : ${book.first_publish_year}</p>
                     </div>
                 </div>
         `;
