@@ -57,7 +57,7 @@ const displayBooks = (noOfBooks, books) => {
                     <img height="500px" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="No cover page found">
                     <div class="card-body">
                         <h5 class="card-title">Book Name : ${book.title}</h5>
-                        <p class="card-text">Author : ${book.author_name[0] ? book.author_name[0] : ''}</p>
+                        <p class="card-text">Author : ${book.author_name ? book.author_name : ''}</p>
                         <p class="card-text">Publisher : ${book.publisher[0]}</p>
                         <p class="card-text">First publish : ${book.first_publish_year}</p>
                     </div>
