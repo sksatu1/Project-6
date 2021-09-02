@@ -4,14 +4,21 @@ const getInputText = () => {
     loadBooks(inputText);
     inputField.value = '';
 
-    // 
-
     document.getElementById('noOfSearchResult').textContent = '';
 
     document.getElementById('display-books').textContent = '';
 
+    errorMessage('none');
+
+    toggler('block');
     // console.log(inputText);
 }
+
+// toggler -------------------------------------------------------------------
+const toggler = (spinnerDisplayStyle) => {
+    document.getElementById('spinner-display-style').style.display = spinnerDisplayStyle;
+}
+
 
 // load search result ---------------------------------------------------------
 const loadBooks = bookName => {
@@ -33,6 +40,7 @@ const displayBooks = (noOfBooks, books) => {
     // console.log(noOfBooks, books);
 
     if (noOfBooks === 0 && books.length === 0) {
+        toggler('none');
         // show error message ------------------------
         errorMessage('block');
     }
@@ -45,21 +53,24 @@ const displayBooks = (noOfBooks, books) => {
         displayNoOfResult.innerText = `${noOfBooks} results found`
 
         const booksContainer = document.getElementById('display-books');
+
         books.forEach(book => {
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
-        <div class="card">
+        <div class="card book-style">
                     <img height="500px" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="No cover page found">
                     <div class="card-body">
                         <h5 class="card-title">Book Name : ${book.title}</h5>
-                        <p class="card-text">Author : ${book.author_name[0]}</p>
+                        <p class="card-text">Author : ${book.author_name[0] ? book.author_name[0] : ''}</p>
                         <p class="card-text">Publisher : ${book.publisher[0]}</p>
                         <p class="card-text">First publish : ${book.first_publish_year}</p>
                     </div>
                 </div>
         `;
             booksContainer.appendChild(div);
+            toggler('none');
         });
+
     }
 }
