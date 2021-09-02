@@ -11,7 +11,6 @@ const getInputText = () => {
     errorMessage('none');
 
     toggler('block');
-    // console.log(inputText);
 }
 
 // toggler -------------------------------------------------------------------
@@ -29,16 +28,13 @@ const loadBooks = bookName => {
         .then(data => displayBooks(data.numFound, data.docs.slice(0, 9)))
 }
 
-// display error message 
+// display error message -------------------------------------------------------
 const errorMessage = (displayStyle) => {
     document.getElementById('error-message').style.display = displayStyle;
 }
 
 // display search result ---------------------------------------------------------
 const displayBooks = (noOfBooks, books) => {
-    // console.log(noOfBooks, books.length);
-    // console.log(noOfBooks, books);
-
     if (noOfBooks === 0 && books.length === 0) {
         toggler('none');
         // show error message ------------------------
