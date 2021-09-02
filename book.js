@@ -25,6 +25,7 @@ const loadBooks = bookName => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayBooks(data.numFound, data.docs.slice(0, 9)))
+        .catch(error => console.log(error))
 }
 
 // display error message -------------------------------------------------------
@@ -58,7 +59,7 @@ const displayBooks = (noOfBooks, books) => {
                     <div class="card-body">
                         <h5 class="card-title">Book Name : ${book.title}</h5>
                         <p class="card-text">Author : ${book.author_name ? book.author_name : ''}</p>
-                        <p class="card-text">Publisher : ${book.publisher[0]}</p>
+                        <p class="card-text">Publisher : ${book.publisher}</p>
                         <p class="card-text">First publish : ${book.first_publish_year}</p>
                     </div>
                 </div>
