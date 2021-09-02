@@ -54,7 +54,7 @@ const displayBooks = (noOfBooks, books) => {
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
-        <div class="card book-style">
+        <div class="card h-100 book-style">
                     <img height="500px" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="No cover page found">
                     <div class="card-body">
                         <h5 class="card-title">Book Name : ${book.title}</h5>
