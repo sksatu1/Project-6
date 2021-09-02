@@ -9,6 +9,10 @@
 
     <!-- bootstrap link  -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- my style  -->
+    <link rel="stylesheet" href="my-style/style.css">
+
 </head>
 
 <body>
@@ -21,10 +25,27 @@
             id="button-addon2">search</button>
     </div>
 
+    <!-- display error message  -->
+    <div>
+        <p class="text-center fs-5 text-danger display-error-message" id="error-message">
+            No result found
+        </p>
+    </div>
+
     <!-- display search result  -->
+
+    <!-- no of search result  -->
+    <div>
+        <p id="noOfSearchResult" class="text-center fs-4">
+
+        </p>
+    </div>
+
+    <!-- display books -->
     <div id="display-books" class="row row-cols-1 row-cols-md-3 g-4">
 
     </div>
+
     <script src="book.js"></script>
 </body>
 
